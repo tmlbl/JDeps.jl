@@ -1,3 +1,5 @@
+# EXPERIMENTAL
+# If a package contains a jvm.json, run its tests on multiple versions of julia
 function test(args)
   test_dir = "/tmp/.jdeps.test"
   if length(args) < 1
