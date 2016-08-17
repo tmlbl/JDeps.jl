@@ -1,0 +1,15 @@
+
+language: julia
+os:
+  - linux
+  - osx
+julia:
+  - 0.3
+  - 0.4
+  - nightly
+notifications:
+  email: false
+script:
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.build("JVM");'
+  - jvm test JVM
